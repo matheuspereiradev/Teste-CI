@@ -1,15 +1,18 @@
 name: Complete Workflow
+
 on: ["push"]
+
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [12.x]
 
-      fail-fast: true
-
-  steps:
+    steps:
     - uses: actions/checkout@v2
     - run: get fetch --prune --unshallow
 
@@ -23,5 +26,5 @@ jobs:
 
     - name: Run tests
       run: yarn test
-        
+          
 
